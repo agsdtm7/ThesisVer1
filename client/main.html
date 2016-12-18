@@ -1,0 +1,190 @@
+<head>
+  <title>pfsm</title>
+</head>
+
+<body>
+ 
+</body>
+
+<template name="ApplicationLayout">
+    {{> yield "firstNavbar"}}
+    {{> yield "appContent"}}
+    {{> yield "appVideos"}}
+    {{> yield "appFooter"}}
+</template>
+
+<template name="pfsmFooter">
+    <div class="navbar navbar-default navbar-fixed-bottom layout-footer">
+        <div class="container">
+            <p class="navbar-text">@2016 - Site Built by Mr. AM</p>
+        </div>
+    </div>
+</template>
+
+<template name="mainMenu">
+    <nav class="navbar navbar-default navbar-fixed-top first-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#">PFSM</a>
+            <ul class="nav navbar-nav navbar-left first-nav">
+                <li><p id="user_name" class="navbar-text">{{username}}</p></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right first-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            {{#if currentUser}}
+            <li><a href="/videos">Videos</a></li>
+            <li><a href="/discussion">Discussions</a></li>
+            {{/if}}
+                <li><p class="navbar-text">{{> loginButtons align="right"}}</p></li>
+            </ul>  
+        </div><!--/ navigation bar attached on top -->
+    </nav>
+</template>
+
+<template name="secondNavbar">
+    <nav class="navbar navbar-default navbar-fixed-top second-nav">
+            <div class="container">
+            <ul class="nav navbar-nav weeks">
+            <li><a href="#">Intro</a></li>
+            <li><a href="#">Variable</a></li>
+            <li><a href="#">Condition</a></li>
+            <li><a href="#">Function</a></li>
+            <li><a href="#">Class and Object</a></li>
+            <li><a href="#">Array</a></li>
+            </ul>
+        </div><!--/ navigation bar attached on top -->
+    </nav>
+</template>
+
+<template name="contentHome">
+    <div class = "container">
+        <div class="row top-margin" id="homeContent">
+            <div class = "col-md-12 col-sm-12">
+            <p>This is Home content.</p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="contentAbout">
+    <div class = "container">
+        <div class="row top-margin" id="aboutContent">
+            <div class = "col-md-12 col-sm-12">
+            <p>Programming Foundation Supplemental Material with Processing (the website) was created in order to accommodate the need of Digital Media students in College of Professional Studies at Northeastern University.</p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="introVideos">
+    <h4>Intro</h4>    
+    <ul class="sub-topic">
+        <li><a href="#">Point and Line</a></li>
+        <li><a href="#">Rectangle and Circle</a></li>
+        <li><a href="#">Triangle</a></li>
+        <li><a href="#">Vertex</a></li>
+    </ul>
+</template>
+
+<template name="pointAndLine">
+    <div class="intrinsic-container">
+        <p align="center"><iframe src="https://www.youtube.com/embed/x3X9HTaLn4Y" frameborder="0" allowfullscreen></iframe></p>
+    </div>    
+</template>
+
+<template name="videosContent">
+    {{#if currentUser}}
+    <!-- Second navigation bar, it will be shown if you click "videos" -->
+    <nav class="navbar navbar-default navbar-fixed-top second-nav">
+            <div class="container">
+            
+                {{> topicList}}
+                
+                <!--
+                <li><a href="#">Intro</a></li>
+                <li><a href="#">Variable</a></li>
+                <li><a href="#">Condition</a></li>
+                <li><a href="#">Function</a></li>
+                <li><a href="#">Class and Object</a></li>
+                <li><a href="#">Array</a></li>
+                -->
+        </div>
+    </nav>
+    <!--/ navigation bar attached on top -->
+    
+    <div class="container">
+    <div class="row top-margin">
+        <div class="col-md-3 col-sm-3 left-sidebar-menu">
+            {{> introVideos}}
+        </div>
+        <div class="col-md-9 col-sm-9 right-sidebar-menu">
+            {{> pointAndLine}}
+        </div>
+    </div>
+    </div>
+    {{/if}}
+</template>
+
+<template name= "topicList">
+    <ul class="nav navbar-nav weeks">    
+        {{#each topics}}
+            {{> topic}}
+        {{/each}}
+    </ul>
+</template>
+
+<template name="topic">
+    <li><a href="#">{{label}}</a></li>
+</template>
+
+<template name="Intro">
+    <h4>Intro</h4>    
+    <ul class="sub-topic">
+        {{#each subTopics}}
+        <li><a href="#">{{link}}</a></li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="Variable">
+    
+</template>
+
+<template name="Condition">
+    
+</template>
+
+<template name="Loop">
+    
+</template>
+
+<template name="Function">
+    
+</template>
+
+<template name="ClassAndObject">
+    
+</template>
+
+<template name="Array">
+    
+</template>
+
+<template name="contentDiscussion">
+    <div class = "container">
+        <div class="row top-margin" id="discussionContent">
+            <h3>Discussion</h3>
+            <div class = "col-md-12 col-sm-12">
+            <p>Programming Foundation Supplemental Material with Processing (the website) was created in order to accommodate the need of Digital Media students in College of Professional Studies at Northeastern University.</p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<!--
+{{> mainMenu}}
+{{> secondNavbar}}
+ {{> pfsmContent}}
+    {{username}}
+ {{> pfsmFooter}}
+-->
